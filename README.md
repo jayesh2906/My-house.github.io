@@ -1,1 +1,1 @@
-Check out House Design approach.
+Check out House Design Approach.pptx for detail.

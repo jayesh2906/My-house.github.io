@@ -1,0 +1,1278 @@
+/* Base Style Start*/
+:root{
+    --light:rgb(245, 245, 245);
+    --dark: rgb(0, 0, 0);
+    --wheat:rgb(245, 222, 179);
+    --gray: rgb(128, 128, 128);
+    --darkgray: rgb(169, 169, 169);
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family: sans-serif;
+}
+li{
+    list-style: none;
+}
+/* Base Style End */
+
+
+/* Light and Dark Mode Start*/
+body{
+    background: url("assets/night.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+body.light{
+    background: url("assets/day.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.toggleClass{
+    position: absolute;
+    top: 2%;
+    right: 15%;
+    border-radius: 50%;
+    background: url("assets/sunnyDay.jfif");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 3px 7px gray;
+    transform: scale(1);
+    transition: .5s;
+    animation: animateLight 1.5s linear infinite;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+@keyframes animateDark {
+      0%{
+        box-shadow: 0 0 0 0 rgb(0, 0, 0, 1);
+      }
+      40%{
+          box-shadow: 0 0 0 8px rgb(0, 0, 0, .6);
+      }
+      80%{
+          box-shadow: 0 0 0 14px rgb(0, 0, 0, .3);
+      }
+      100%{
+          box-shadow: 0 0 0 20px rgb(0, 0, 0, 0);
+      }
+}
+@keyframes animateLight {
+    0%{
+        box-shadow: 0 0 0 0 rgb(255, 255, 255, 1);
+      }
+      40%{
+          box-shadow: 0 0 0 8px rgb(255, 255, 255, .6);
+      }
+      80%{
+          box-shadow: 0 0 0 14px rgb(255, 255, 255, .3);
+      }
+      100%{
+          box-shadow: 0 0 0 20px rgb(255, 255, 255, 0);
+      }
+}
+.toggleClass:hover{
+    transform: scale(1.05);
+}
+.toggleClass::before{
+    position: absolute;
+    content: 'Light Mode';
+    white-space: nowrap;
+    left: 70px;
+}
+body.light .toggleClass{
+    background: url("assets/nightMoon.jfif");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--dark);
+    animation: animateDark 1.5s linear infinite;
+}
+body.light .toggleClass:before{
+    content: 'Dark Mode';
+}
+/* Light and Dark Mode End*/
+
+
+/* 3d Style Start */
+.house-wrapper{
+    display: flex;
+}
+.house{
+    height: 200vh;
+    zoom: 57%;
+    flex-basis: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: hotpink; */
+}
+.menu{
+    flex-basis: 20%;
+    /* background-color: lightblue; */
+}
+.single-box{
+    width: 555px;
+    height: 855px;
+    border: 1px solid var(--gray);
+    display: block;
+    position: absolute;
+    transform: rotateY(45deg) translateZ(-400px) rotateX(15deg);
+    transform-origin: 50% 50% 0;
+    background-color: var(--darkgray);
+}
+.front-view{
+    transform: translateZ(275px);
+}
+.side-back{
+    transform: rotateY(180deg) translateZ(275px);
+}
+.side-right{
+    transform: rotateY(90deg) translateZ(275px);
+}
+.side-left{
+    transform: rotateY(-90deg) translateZ(275px);
+}
+.box{
+    transform-style: preserve-3d;
+}
+.cube-wrap{
+    width: 600px;
+    height: 800px;
+    perspective: 2000px;
+    perspective-origin: 50% - 500px;
+}
+.container{
+    perspective: 1500px;
+}
+@keyframes rotate {
+    0%{
+        transform:rotateY(0);
+    }
+    100%{
+        transform:rotateY(360deg);
+    }
+}
+/* 3d Style End*/
+
+
+/* Menu and Buttons Start */
+.menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 4rem;
+    padding-right: 1rem;
+    gap: 3rem;
+}
+a{
+    width: 200px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    color: #fff;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: sans-serif;
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    border-radius: 30px;
+    position: relative;
+    z-index: 1;
+    transform: scale(1);
+    transition: .5s transform;
+    box-shadow: -2px 5px 8px rgb(43, 42, 42);
+}
+a:hover{
+    animation: animate 8s linear infinite;
+    cursor: pointer;
+}
+@keyframes animate {
+    0%{
+        background-position: 0%;
+    }  
+    100%{
+        background-position: 400%;
+    }
+}
+a:before{
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    border-radius: 40px;
+    opacity: 0;
+    transition: .5s;
+}
+a:hover:before{
+    opacity: 1;
+    filter: blur(20px);
+    animation: animate 8s linear infinite;
+}
+a:active{
+    transform: scale(1.1);
+}
+/* Menu and Buttons End */
+
+
+/* Front View of House Start*/
+.front-view{
+    display: flex;
+    flex-direction: column;
+    background-color: lightgray;
+    box-shadow: 0 0 2px 2px rgb(0, 0, 0);
+}
+.front-view .ground-floor{
+    flex-basis: 34%;
+    display: flex;
+    flex-direction: column;
+}
+.front-view .first-floor{
+    flex-basis: 33%;
+    display: flex;
+    flex-direction: column;
+}
+.front-view .terrace{
+    flex-basis: 33%;
+}
+
+
+/* Ground-floor Style Start*/
+.header-view{
+    flex-basis: 12%;
+    box-shadow: 0px 3px 3px rgb(83, 83, 83),  0px -3px 3px rgb(83, 83, 83);
+    display: flex;
+    z-index: 99;
+}
+.header-view .header-block-left, .header-view .header-block-right{
+   flex: 1;
+   display: flex;
+   gap: 1rem;
+   justify-content: center;
+   align-items: center;
+}
+.header-view .header-block-right > li,  .header-view .header-block-left > li{
+    height: 80%;
+    width: 12%;
+    margin-top: -.5rem;
+    background-color: var(--light);
+    box-shadow: -2px 3px 3px var(--dark);
+    border-right: .5px solid var(--gray);
+    border-top: .5px solid var(--gray)
+ }
+.header-view .header-block-left{
+  margin-left: -3.2rem;
+ }
+.ground-floor .main-view{
+    flex-basis: 88%;
+    display: flex;
+}
+.main-view .left-part{
+    margin-left: auto;
+    flex-basis: 30%;
+    background-color: rgb(168, 27, 27);
+    display: flex;
+}
+.main-view .right-part{
+    flex-basis: 65%;
+    display: flex;
+}
+
+/* ground-floor left-part style */
+.main-view .gate{
+    position: absolute;
+    display: flex;
+    width: 95%;
+    height: 55%;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+.main-view .left-part{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    background-color: var(--darkgray);
+    opacity: 1;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0px 0px 5px 2px rgba(0,0,0,0.8);
+}
+.main-view .left-part::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--dark);
+    opacity: .3;
+    z-index: 1;
+}
+.left-part .inside-window{
+    margin-top: 1rem;
+    width: 6rem;
+    height: 4rem;
+}
+.left-part .inside-door{
+    width: 10rem;
+    height: 20rem;
+    background-color: rgb(128, 33, 33);
+}
+.gate .left, .gate .right{
+   flex-basis: 50%;
+   height: 100%;
+   border: 5px solid var(--wheat);
+   transition: transform 2s ease;
+}
+.gate .left{
+    transform-origin: left center;
+}
+.gate .right{
+    transform-origin: right center;
+}
+.open-door-r{
+    transform-origin: right center;
+    transform: perspective(400px) rotateY(-70deg);
+}
+.open-door-l{
+    transform-origin: left center;
+    transform: perspective(400px) rotateY(70deg);
+}
+
+
+/* gate creation */
+.ground-floor .gate .left{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.ground-floor .gate .left::after{
+   content: "";
+   position: absolute;
+   height: 106%;
+   width: 1px;
+   background-color: var(--wheat);
+   top: -2%;
+   left:-2%;
+}
+.ground-floor .gate .left::before{
+    content: "";
+    position: absolute;
+    height: 106%;
+    width: 1px;
+    background-color: var(--wheat);
+    top: -2%;
+    right:-2%;
+}
+.gate .left .top{
+    flex-basis: 32%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.gate .left .top > li{
+    width: 100%;
+    height: 5px;
+    background-color: var(--wheat);
+}
+.gate .left .middle{
+    flex-basis: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    border-top: 5px solid var(--wheat);
+    position: relative;
+}
+.gate .left .middle::before{
+    content: "";
+    position: absolute;
+    top: -3%;
+    left: 0%;
+    width: 100%;
+    height: 2px;
+    background-color: var(--wheat);
+}
+.gate .left .middle > li{
+    height: 100%;
+    width: 5px;
+    background-color: var(--wheat);
+}
+.gate .left .bottom{
+    flex-basis: 28%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.gate .left .bottom::before{
+    content: "";
+    position: absolute;
+    bottom: -3%;
+    left: 0%;
+    width: 100%;
+    height: 2px;
+    background-color: var(--wheat);
+}
+.gate .left .bottom > li{
+    width: 100%;
+    height: 9.2px;
+    background-color: var(--wheat);
+    border-bottom: 2px solid rgb(233, 190, 112);
+}
+.ground-floor .gate .right{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.ground-floor .gate .right::before{
+    content: "";
+    position: absolute;
+    height: 106%;
+    width: 1px;
+    background-color: var(--wheat);
+    top: -2%;
+    right:-2%;
+}
+.gate .right .top{
+    flex-basis: 32%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.gate .right .top > li{
+    height: 5px;
+    background-color: var(--wheat);
+}
+.gate .right .middle{
+    flex-basis: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    border-top: 5px solid var(--wheat);
+    margin-left: -.5px;
+    position: relative;
+}
+.gate .right .middle::before{
+  content: "";
+  position: absolute;
+  top: -3%;
+  left: 0%;
+  width: 100%;
+  height: 2px;
+  background-color: var(--wheat);
+}
+.gate .right .middle > li{
+    height: 100%;
+    width: 5px;
+    background-color: var(--wheat);
+}
+.gate .right .bottom{
+    margin-left: -.5px;
+    width: 100%;
+    flex-basis: 28%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.gate .right .bottom::before{
+    content: "";
+    position: absolute;
+    bottom: -3%;
+    left: 0%;
+    width: 100%;
+    height: 2px;
+    background-color: var(--wheat);
+}
+.gate .right .bottom > li{
+    width: 100%;
+    height: 9.2px;
+    background-color: var(--wheat);
+    border-bottom: 2px solid rgb(233, 190, 112);
+}
+
+
+/* behind gate, inside window and door */
+.left-part .inside-window{
+    display: flex;
+    background-color: var(--dark);
+    justify-content: space-evenly;
+    position: relative;
+}
+.left-part .inside-window >li{
+    height: 100%;
+    width: 2px;
+    background-color: var(--wheat);
+}
+.left-part .inside-window .horizontal{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.left-part .inside-window .horizontal > li{
+    width: 100%;
+    height: 2px;
+    background-color: var(--wheat);
+}
+.inside-door{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: inset 0px 0px 5px 2px rgba(0,0,0,0.8);
+}
+.ground-floor .inside-door .rectangle{
+    flex-basis: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-content: center;
+    justify-content: center;
+}
+.ground-floor .inside-door .rectangle >li{
+    display: inline-block;
+    width: 30%;
+    height: 40%;
+    border: 2px solid rgb(218, 154, 36);
+    box-shadow: inset 0px 0px 1px 2px rgba(0,0,0,0.8);
+}
+.ground-floor .inside-door .square{
+    flex-basis: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-content: center;
+    justify-content: center;
+}
+.ground-floor .inside-door .square >li{
+    display: inline-block;
+    width: 30%;
+    height: 30%;
+    border: 2px solid rgb(218, 154, 36);
+    display: grid;
+    place-items: center;
+    box-shadow: inset 0px 0px 5px 2px rgba(0,0,0,0.8);
+}
+.ground-floor .inside-door .square >li div{
+    width: 65%;
+    height: 65%;
+    border: 2px solid rgb(218, 154, 36);
+    border-radius: 50%;
+}
+.ground-floor .inside-door .lockBar{
+    position: absolute;
+    width: 25%;
+    height: 10%;
+    top: 53%;
+    left: 72%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.ground-floor .inside-door .lockBar li:first-child{
+    width: 100%;
+    background-color: silver;
+    height: .1rem;
+}
+.ground-floor .inside-door .lockBar li:last-child{
+    width: 30%;
+    background-color: silver;
+    height: 1.1rem;
+    border-radius: 2px;
+}
+
+
+/* right-part of ground floor */
+.main-view .right-part{
+    display: flex;
+}
+.main-view .right-part .slider-part{
+    margin-left: auto;
+    flex-basis: 60%;
+}
+.main-view .right-part .window-part{
+    flex-basis: 35%;
+}
+.slider-part{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 2rem;
+}
+.slider-part .slide-wrapper{
+  flex-basis: 40%;
+  width: 50%;
+  margin-top: auto;
+  border: .5rem solid var(--light);
+  box-shadow: -3px 4px 3px var(--dark);
+  position: relative;
+}
+.slider-part .threeBars{
+  flex-basis: 30%;
+  width: 28%;
+}
+
+
+/* slider part ground floor */
+.slide-wrapper .window{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0px 0px 200px 5px rgba(0,0,0,0.8);
+}
+.slide-wrapper .left-slide, .slide-wrapper .right-slide{
+   background-color: rgb(31, 25, 25,.7);
+   width: 50%;
+   height: 100%;
+   border: 5px solid var(--dark);
+   transition: transform 2s ease;
+}
+.open-slide{
+   transform: translateX(-100%);
+}
+.slide-wrapper .strips{
+    width: 97%;
+    height: 98%;
+    position: absolute;
+    top: 50%;
+    left: 50.1%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    z-index: 1;
+    border: 1px solid var(--wheat);
+    border-top: 0px;
+    border-bottom: 0px;
+}
+.slide-wrapper .strips::before{
+    content: '';
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    left: 15%;
+    z-index: 99;
+    background-color: var(--wheat);
+}
+.slide-wrapper .strips::after{
+    content: '';
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    right: 15%;
+    z-index: 99;
+    background-color: var(--wheat);
+}
+.slide-wrapper .strips .rode{
+    width: 100%;
+    height: 1px;
+    background-color: var(--wheat);
+    list-style: none;
+}
+.slide-wrapper .strips:nth-child(1){
+    margin-top: .2rem;
+}
+.slider-part .threeBars{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    gap : 1rem;
+}
+.slider-part .threeBars > li{
+   width: 100%;
+   height: 15%;
+   background-color: var(--light);
+   box-shadow: -3px 4px 3px var(--dark);
+}
+
+
+/* small window right slide ground floor */
+.right-part .window-part{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: start;
+    align-items: flex-start;
+}
+.right-part .window-part .small-window{
+    flex-basis: 25%;
+    width: 70%;
+    box-shadow: 0px 0px 1px 1px var(--gray);
+    display: flex;
+    margin-top: .3rem;
+    position: relative;
+    background-image: radial-gradient(lightgray,black);
+}
+.right-part .window-part .small-window ::before{
+    content: '';
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    height: 100%;
+    width: .3px;
+    background-color: rgb(0, 0, 0,.6);
+}
+.small-window .left-small-window, .small-window .right-small-window{
+    width: 50%;
+    height: 100%;
+    border: 5px solid var(--wheat);
+    transition: transform 2s ease;
+    background-color: rgba(0, 0, 0,.9);
+ }
+ .small-window .left-small-window{
+     transform-origin: left center;
+ }
+ .small-window .right-small-window{
+     transform-origin: right center;
+ }
+ .open-window-r{
+     transform-origin: right center;
+     transform: perspective(400px) rotateY(70deg);
+ }
+ .open-window-l{
+     transform-origin: left center;
+     transform: perspective(400px) rotateY(-70deg);
+ }
+ .right-part .window-part .threeBars{
+    flex-basis: 25%;
+    width: 54%;
+    align-self: flex-end;
+    margin-right: 1rem;
+}
+.right-part .window-part .threeBars{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    gap : 1rem;
+}
+.right-part .window-part  .threeBars > li{
+   width: 100%;
+   height: 15%;
+   background-color: var(--light);
+   box-shadow: -3px 4px 3px var(--dark);
+}
+/* Ground-floor Style End*/
+
+
+/*  First-floor Style Start */
+.first-floor .main-view{
+    flex-basis: 88%;
+    display: flex;
+}
+.first-floor .header-view .header-block-right > li, .first-floor .header-view .header-block-left > li{
+    margin-top: -2.4px;
+}
+.small-window .left-small-window1, .small-window .right-small-window1{
+    width: 50%;
+    height: 100%;
+    border: 5px solid var(--wheat);
+    outline: 2px solid balck;
+    transition: transform 2s ease;
+    background-color: rgba(0, 0, 0,.9);
+}
+ .small-window .left-small-window1{
+     transform-origin: left center;
+}
+ .small-window .right-small-window1{
+     transform-origin: right center;
+}
+.right-part .window-part .large-window{
+    flex-basis: 35%;
+    width: 70%;
+    box-shadow: 0px 0px 1px 1px var(--gray);
+    display: flex;
+    position: relative;
+    background-image: radial-gradient(lightgray,black);
+}
+.right-part .window-part .large-window ::before{
+    content: '';
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    height: 100%;
+    width: .3px;
+    background-color: rgb(0, 0, 0,.6);
+}
+.large-window .left-large-window, .large-window .right-large-window{
+    width: 50%;
+    height: 100%;
+    border: 5px solid var(--wheat);
+    outline: 2px solid balck;
+    transition: transform 2s ease;
+    background-color: rgba(0, 0, 0,.9);
+}
+ .large-window .left-large-window{
+     transform-origin: left center;
+}
+ .large-window .right-large-window{
+     transform-origin: right center;
+}
+ .slide-wrapper .left-slide, .slide-wrapper .right-slide1{
+    background-color: rgb(31, 25, 25,.7);
+    width: 50%;
+    height: 100%;
+    border: 5px solid var(--dark);
+    transition: transform 2s ease;
+}
+.first-floor .main-view .left-part{
+    justify-content: flex-start;
+    gap: 1rem;
+}
+.first-floor .left-part .inside-window{
+    margin-top: auto;
+    flex-basis: 18%;
+}
+.first-floor .left-part .inside-window .horizontal > li:last-child{
+    height: 1px;
+}
+.first-floor .left-part .inside-door{
+    width: 10rem;
+    flex-basis: 68%;
+    flex-direction: row;
+    background-color: rgb(82, 42, 14);
+}
+.inside-door .circle{
+    flex-basis: 50%;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding-top: 1.5rem;
+}
+.inside-door .circle> div{
+    flex-basis: 27%;
+    width: 60%;
+    border-radius: 50%;
+    background-color: silver;
+}
+.inside-door .verticalLines{
+    flex-basis: 50%;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-left: 1rem;
+}
+.inside-door .verticalLines>li{
+    height: 90%;
+    margin-top: auto;
+    width: .5rem;
+    background-color: silver;
+}
+.first-floor .inside-door .lockBar{
+    position: absolute;
+    width: 20%;
+    height: 10%;
+    top: 55%;
+    left: 83%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.first-floor .inside-door .lockBar li:first-child{
+    width: 20%;
+    background-color: silver;
+    height: .2rem;
+    border-radius: 25%;
+}
+.first-floor .inside-door .lockBar li:last-child{
+    width: 50%;
+    background-color: silver;
+    height: 1.1rem;
+    border-radius: 50%;
+    position: relative;
+}
+.first-floor .inside-door .lockBar li:last-child::before{
+   content: '';
+   position: absolute;
+   top:50%;
+   left: 50%;
+   width: 1px;
+   height: 3px;
+   background-color: var(--dark);
+}
+.left-part .gallary{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 35%;
+    top: 65%;
+    z-index: 2;
+}
+.left-part .gallary-top{
+    display: flex;
+    width: 100%;
+    flex-basis: 80%;
+}
+.left-part .gallary-bottom{
+    width: 100%;
+    flex-basis: 20%;
+    background-color: lightgray;
+}
+.left-part .gallary-top .block-right, .left-part .gallary-top .block-left{
+  flex-basis: 10%;
+  background-color: lightgray;
+  box-shadow: -2px 0px 2px var(--dark);
+}
+.left-part .gallary-top .block-left{
+    box-shadow: 2px 0px 2px var(--dark);
+}
+.left-part .gallary-top .gallary-wrapper{
+   flex-basis: 80%;
+   height: 80%;
+   display: flex;
+   flex-direction: column;
+   gap: .7rem;
+   justify-content: space-evenly;
+}
+.left-part .gallary-top .gallary-wrapper > li{
+   width: 100%;
+   height: 5px;
+   background-color: var(--light);
+   box-shadow: 0px 2px 2px var(--dark);
+}
+.left-part .roof{
+    position: absolute;
+    display: flex;
+    width: 98%;
+    height: 20%;
+    top: .5%;
+    z-index: 2;
+}
+.left-part .roof .roof-right, .left-part .roof .roof-left{
+    flex-basis: 50%;
+    height: 100%;
+    border: 5px solid var(--wheat);
+    background-color: rgba(0, 0, 0,.7);
+    box-shadow: 0px 2px 2px var(--dark);
+}
+/* First-floor Style End */
+
+
+/* Terrace-Part Style Start */
+.terrace{
+    display: flex;
+    flex-direction: column;
+}
+.terrace .top-part{
+    flex-basis: 30%;
+    background: url("assets/night.jpg");
+}
+.terrace .top-part-light{
+    background: url("assets/day.jpg");
+}
+.terrace .bottom-part{
+    flex-basis: 70%;
+    display: flex;
+    flex-direction: column;
+}
+.bottom-part .header-view{
+    flex-basis: 17%;
+    box-shadow: 0px 3px 3px rgb(83, 83, 83),  0px -3px 3px rgb(83, 83, 83);
+    display: flex;
+    z-index: 99;
+}
+.terrace .header-view .header-block-right > li, .terrace .header-view .header-block-left > li{
+    margin-top: -2.4px;
+}
+.bottom-part .main-view{
+    flex-basis: 83%;
+    display: flex;
+}
+.terrace .left-part .inside-window{
+    margin-top: 1rem;
+    width: 6rem;
+    height: 4rem;
+}
+.terrace .left-part .inside-door{
+    width: 10rem;
+    height: 14rem;
+    flex-direction: row;
+    background-color: rgb(82, 42, 14);
+    position: relative;
+}
+.terrace .main-view .left-part{
+    justify-content: flex-end;
+}
+.terrace .inside-door .circle> div{
+    flex-basis: 27%;
+    width: 45%;
+    border-radius: 50%;
+}
+.terrace .left-part .gallary{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 45%;
+    top: 65%;
+    z-index: 2;
+}
+.terrace .left-part .gallary-wrapper > li:first-child{
+   height: 4px;
+   margin-top: 2px;
+}
+.terrace .slider-part .slide-wrapper{
+    flex-basis: 60%; 
+    margin-top: .5rem;
+}  
+.terrace .slider-part .threeBars{
+    flex-basis: 40%;
+    width: 28%;
+}
+.terrace .slide-wrapper .strips{
+    gap: 6px;
+}
+.terrace .right-part .window-part .threeBars{
+    margin-top: 1rem;
+    flex-basis: 35%;
+}
+.terrace .right-part .window-part .large-window{
+    flex-basis: 50%;
+}
+.terrace  .slide-wrapper .left-slide, .slide-wrapper .right-slide2{
+    background-color: rgb(31, 25, 25,.7);
+    width: 50%;
+    height: 100%;
+    border: 5px solid var(--dark);
+    transition: transform 2s ease;
+}
+.large-window .left-large-window1, .large-window .right-large-window1{
+    width: 50%;
+    height: 100%;
+    border: 5px solid var(--wheat);
+    outline: 2px solid balck;
+    transition: transform 2s ease;
+    background-color: rgba(0, 0, 0,.9);
+}
+ .large-window .left-large-window1{
+     transform-origin: left center;
+ }
+ .large-window .right-large-window1{
+     transform-origin: right center;
+ }
+.terrace .header-view{
+    position: relative;
+}
+.terrace .header-view .middle-design{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 2%;
+    left: 42%;
+    display: flex;
+    gap: .5rem;
+}
+.terrace .header-view .middle-design > li{
+    height: 95%;
+    width: 1.1rem;
+    margin: .4rem;
+    background-color: var(--light);
+    box-shadow: -2px 3px 3px var(--dark);
+    border-right: .5px solid var(--gray);
+    border-top: .5px solid var(--gray)
+}
+.terrace .top-part{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.terrace .top-part .pillar{
+    height: 100%;
+    width: 4rem;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+    box-shadow: 3px 0px 3px rgb(83, 83, 83),  -3px 0px 3px rgb(83, 83, 83);
+}
+.terrace .top-part .pillar > li{
+height: 35%;
+width: 65%;
+background-color: var(--light);
+box-shadow: -2px 3px 3px var(--dark);
+border-right: .5px solid var(--gray);
+border-top: .5px solid var(--gray);
+}
+.terrace .top-part .gallary-wrapper-left{
+    position: absolute;
+    width: 39%;
+    height: 100%;
+    left: 7%;
+    gap: 1.3rem;
+    display: flex;
+    flex-direction: column;
+}
+.terrace .top-part .gallary-wrapper-right{
+    position: absolute;
+    width: 38.5%;
+    height: 100%;
+    right: 7.5%;
+    gap: 1.3rem;
+    display: flex;
+    flex-direction: column;
+}
+.terrace .gallary-wrapper-left > li, .terrace .gallary-wrapper-right > li{
+    width: 100%;
+    height: 5px;
+    background-color: var(--light);
+    box-shadow: 0px 2px 2px var(--dark);
+}
+.terrace .gallary-wrapper-left > li:first-child, .terrace .gallary-wrapper-right > li:first-child{
+   margin-top: .5rem;
+}
+.terrace .gallary-wrapper-left > li:last-child, .terrace .gallary-wrapper-right > li:last-child{
+    height: 6px;
+}
+/* Terrace-Part Style End */
+
+/* Front View of House End*/
+
+
+/* Mobile Responsive Style Start */
+@media screen and (max-width : 1250px) {
+    .toggleClass{
+       right: 18%;
+    }
+}
+@media screen and (max-width : 1050px) {
+    a{
+        width: 150px;
+        height: 50px;
+        font-size: 17px;
+        line-height: 50px;
+    }
+}
+@media screen and (max-width : 900px) {
+    .toggleClass{
+        right: 22%;
+    }
+    .menu{
+        align-items: flex-start;
+        justify-content: center;
+    }
+}
+@media screen and (max-width : 750px) {
+    .toggleClass{
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    .toggleClass::before{
+        left: 60px;
+    }
+}
+@media screen and (max-width : 650px) {
+    .toggleClass{
+        width: 35px;
+        height: 35px;
+        font-size: 17px;
+        right: 8%;
+    }
+    .toggleClass::before{
+        left: 53px;
+        top: 160%;
+        left: -110%;
+    }
+    .house{
+        height: 200vh;
+        zoom: 60%;
+        flex-basis: 90%;
+    }
+    .menu{
+        flex-basis: 10%;
+    }
+    a{
+        width: 100px;
+        height: 30px;
+        font-size: 12px;
+        line-height: 30px;
+    }
+}
+@media screen and (max-width : 530px) {
+    .house{
+        zoom: 50%;
+    }
+}
+@media screen and (max-width : 460px) {
+    .house{
+        zoom: 40%;
+    }
+    .toggleClass{
+        right: 9%;
+    }
+    body{
+        height: 100vh;
+    }
+}
+@media screen and (max-width : 390px) {
+    .house{
+        zoom: 36%;
+        flex-basis: 95%;
+    }
+    .menu{
+        flex-basis: 5%;
+    }
+    .toggleClass{
+        width: 25px;
+        height: 25px;
+        font-size: 12px;
+        right: 10%;
+    }
+    .toggleClass::before{
+        left: -100%;
+    }
+    a{
+        width: 70px;
+        height: 20px;
+        font-size: 8px;
+        line-height: 20px;
+    }
+}
+@media screen and (max-width : 340px) {
+        .house{
+            zoom: 33%;
+        }
+}
+/* Mobile Responsive Style End */

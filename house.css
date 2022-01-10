@@ -21,13 +21,13 @@ li{
 
 /* Light and Dark Mode Start*/
 body{
-    background: url("assets/night.jpg");
+    background: url("assets/night.jpg"), rgb(0, 0, 0);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 body.light{
-    background: url("assets/day.jpg");
+    background: url("assets/day.jpg"), skyblue;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -37,7 +37,7 @@ body.light{
     top: 2%;
     right: 15%;
     border-radius: 50%;
-    background: url("assets/sunnyDay.jfif");
+    background: url("assets/sunnyDay.jfif"), skyblue;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -95,7 +95,7 @@ body.light{
     left: 70px;
 }
 body.light .toggleClass{
-    background: url("assets/nightMoon.jfif");
+    background: url("assets/nightMoon.jfif"), rgb(0, 0, 0);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -996,10 +996,10 @@ a:active{
 }
 .terrace .top-part{
     flex-basis: 30%;
-    background: url("assets/night.jpg");
+    background: url("assets/night.jpg"), rgb(0, 0, 0);
 }
 .terrace .top-part-light{
-    background: url("assets/day.jpg");
+    background: url("assets/day.jpg"), skyblue;
 }
 .terrace .bottom-part{
     flex-basis: 70%;

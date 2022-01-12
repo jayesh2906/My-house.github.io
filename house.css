@@ -119,11 +119,9 @@ body.light .toggleClass:before{
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color: hotpink; */
 }
 .menu{
     flex-basis: 20%;
-    /* background-color: lightblue; */
 }
 .single-box{
     width: 555px;
